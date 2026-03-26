@@ -1,0 +1,28 @@
+# general
+max-history=25
+on-button-middle=dismiss-group
+default-timeout=5000
+format=<b>(%a)</b> <span font='MononokiNerdFont 17' rise='2000'>›</span> %s %b
+
+# style
+font=MononokiNerdFont 16
+
+background-color=#272E33
+text-color=#D3C6AA
+
+border-size=3
+border-color=#A7C080
+
+outer-margin=15,5
+
+# urgencies
+[urgency=low]
+border-color=#A7C080
+
+[urgency=normal]
+border-color=#A7C080
+
+[urgency=high]
+border-color=#E67E80
+default-timeout=0
+anchor=top-left

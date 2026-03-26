@@ -1,0 +1,156 @@
+// -*- mode: jsonc -*-
+{
+    "height": 35,
+    "spacing": 5,
+    "output": "DP-1",
+
+    // Choose the order of the modules
+    "modules-left": [
+        "group/Util",
+        "group/Workspaces",
+        "custom/media"
+    ],
+    "modules-center": [
+        "group/Clock"
+    ],
+    "modules-right": [
+        "group/Info",
+        "group/Sys",
+        "custom/power"
+    ],
+
+    //groups so it's easier to find stuff and separators don't make a mess
+    "group/Util": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+        ]
+    },
+    "group/Workspaces": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/sep",
+            "niri/workspaces",
+        ]
+    },
+    "group/Clock": {
+        "orientation": "horizontal",
+        "modules": [
+            "clock",
+        ]
+    },
+    "group/Info": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "custom/sep",
+            "memory",
+            "custom/sep",
+            "temperature",
+        ]
+    },
+    "group/Sys": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/sep",
+            "niri/window",
+            "custom/sep",
+            "network",
+            "custom/sep",
+        ]
+    },
+
+    //separator
+    "custom/sep": {
+        "format": "|",
+        "tooltip": false
+    },
+
+    // Modules config
+    "niri/workspaces": {
+       "format": "{icon}",
+       "all-outputs": true,
+       "active-only": false
+    },
+    "niri/window": {
+        "format": "{app_id}"
+    },
+    "clock": {
+        "timezone": "",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "format": "{:%H:%M}"
+    },
+    "cpu": {
+        "format": "<span color=\"#A7C080\"></span>  {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "<span color=\"#A7C080\"></span>   {}%"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "<span color='#A7C080'></span>",
+            "<span color='#DBBC7F'></span>",
+            "<span color='#E69875'></span>",
+            "<span color='#E67E80'></span>"
+        ]
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "network": {
+        "format-wifi": "{icon}",
+        "format-ethernet": "<span color=\"#A7C080\">󰈀</span>  {ipaddr}",
+        "format-disconnected": "<span color=\"#A7C080\"> </span> ",
+        "on-click": "nm-connection-editor"
+    },
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "<span color='#7FBBB3'></span> ",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "<span color='#A7C080'></span>",
+                "<span color='#DBBC7F'></span>",
+                "<span color='#E67E80'></span>"
+            ]
+        },
+        "on-click": "easyeffects"
+    },
+
+    "custom/media": {
+        "format": "{}",
+        "always-on": true,
+        "interval" : 1,
+        "markup": true,
+        "exec": "~/.config/scripts/get-song.sh wb",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+    "custom/power": {
+        "format" : " <span color='#A7C080'>⏻</span> ",
+		"tooltip": false,
+		"on-click": "wlogout --buttons-per-row 6"
+    }
+}

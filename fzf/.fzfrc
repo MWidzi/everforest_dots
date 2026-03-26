@@ -1,0 +1,23 @@
+--list-border sharp
+--input-border sharp
+--header-border sharp
+--preview-border sharp
+--height 50%
+--layout reverse
+--scroll-off=200
+--padding=0,1
+--input-label ''
+--header-label ''
+--preview '/home/widzi/Documents/scripts/fzf-preview.sh {}'
+--bind 'result:transform-list-label:
+if [[ -z \$FZF_QUERY ]]; then
+echo \" \$FZF_MATCH_COUNT items \";
+else echo \" \$FZF_MATCH_COUNT matches for [\$FZF_QUERY] \";
+fi'
+--bind 'ctrl-r:change-list-label(Reloading the list)+reload(sleep 2; git ls-files)'
+--color 'preview-border:#A7C080'
+--color 'list-border:#A7C080'
+--color 'input-border:#A7C080'
+--color 'header-border:#A7C080'
+--color 'prompt:#83C092,info:#7FBBB3'
+--color 'bg:#272E33,bg+:#272E33,fg+:#7FBBB3,pointer:#83C092'

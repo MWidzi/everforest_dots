@@ -1,0 +1,188 @@
+/* the config was heavily inspired by this one, go check them out https://www.reddit.com/r/unixporn/comments/1n7enhc/hyprland_second_linux_rice/#lightbox */
+
+/* variables */
+
+@define-color text             #D3C6AA;
+@define-color bg               #272E33;
+@define-color bg-hover         #374145;
+@define-color urgent           #E67E80;
+@define-color border-color     #A7C080;
+@define-color box-shadow       #3D484D;
+@define-color text-hl          #7FBBB3;
+
+* {
+    font-family: "Mononoki Nerd Font";
+    font-size: 16px;
+    transition-property: background-color;
+    transition-duration: .2s;
+}
+
+#custom-openbracket,
+#custom-closebracket{
+    margin: 0 5px ;
+}
+
+/* default stuff */
+window#waybar {
+    color: @text;
+    transition-property: background-color;
+    transition-duration: .2s;
+    background-color: @bg;
+    box-shadow: inset 0 -3px @box-shadow;
+}
+window#waybar.hidden {
+    opacity: 0.2;
+}
+window#waybar.empty #window {
+    background-color: transparent;
+}
+
+/* modules style */
+.modules-left {
+    margin:  0 0 0 5px;
+    padding: 0 0 0 7px;
+}
+.modules-center {
+    margin:  0 0 0 0;
+    padding: 0 10px 0 10px;
+}
+.modules-right {
+    margin:  0 5px 0 0;
+    padding: 0 10px 0 10px;
+}
+
+/* workspaces */
+button:hover {
+    background-color: @bg-hover;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @text;
+    transition-property: color;
+    transition-duration: .2s;
+}
+
+#workspaces button:hover {
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;   
+    transition: none;
+    color: @text-hl;
+}
+
+#workspaces button.active {
+    /*var dosen't work here idk why*/
+    color: #A7C080;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: @urgent;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* window */
+#window{
+    padding-right: 7px;
+    padding-left: 7px;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* util */
+#clock {
+    margin: 0px;
+    padding: 0px 10px;
+}
+#cpu,
+#memory,
+#temperature {
+    padding: 0px 5px;
+}
+#network,
+#battery {
+    padding: 0 10px;
+    margin: 0px;
+}
+#network {
+    padding: 0 10px;
+}
+#pulseaudio {
+    padding: 0 10px;
+}
+#pulseaudio:hover {
+    background-color: @bg-hover;
+}
+#network:hover {
+    background-color: @bg-hover;
+}
+
+/* separators */
+#custom-Left,
+#custom-Right {
+    margin: 0 5px;
+}
+#custom-sep {
+    padding: 0 5px 1px;
+}
+
+/* battery */
+@keyframes blink {
+    to {
+        color: @urgent;
+    }
+}
+
+/* custom */
+#custom-power{
+    padding: 0 4px 0 0;
+    margin: 0 4px;
+}
+#custom-power:hover {
+    background-color: @bg-hover;
+}
+#custom-media {
+    margin: 0 5px;
+    padding: 0 10px;
+    min-width: 40px;
+}
+#custom-media:hover {
+    background-color: @bg-hover;
+}
+#custom-cava {
+    margin: 0px 10px;
+    padding: 0px 10px;
+}
+
+/* power profiles daemon */
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+    color: #000000;
+}
