@@ -1,0 +1,51 @@
+:root {
+      /* containers */
+  [data-color="yellow"],
+  .identity-color-yellow {
+    --color: #DBBC7F !important;
+    --identity-tab-color: #DBBC7F !important;
+    --identity-icon-color: #DBBC7F !important;
+  }
+  [data-color="purple"],
+  .identity-color-purple {
+    --color: #D699B6 !important;
+    --identity-tab-color: #D699B6 !important;
+    --identity-icon-color: #D699B6 !important;
+  }
+  [data-color="blue"],
+  .identity-color-blue {
+    --color: #7FBBB3 !important;
+    --identity-tab-color: #7FBBB3 !important;
+    --identity-icon-color: #7FBBB3 !important;
+  }
+  [data-color="turquoise"],
+  .identity-color-turquoise {
+    --color: #83C092 !important;
+    --identity-tab-color: #83C092 !important;
+    --identity-icon-color: #83C092 !important;
+  }
+  [data-color="green"],
+  .identity-color-green {
+    --color: #A7C080 !important;
+    --identity-tab-color: #A7C080 !important;
+    --identity-icon-color: #A7C080 !important;
+  }
+  [data-color="orange"],
+  .identity-color-orange {
+    --color: #E69875 !important;
+    --identity-tab-color: #E69875 !important;
+    --identity-icon-color: #E69875 !important;
+  }
+  [data-color="red"],
+  .identity-color-red {
+    --color: #E67E80 !important;
+    --identity-tab-color: #E67E80 !important;
+    --identity-icon-color: #E67E80 !important;
+  }
+  [data-color="pink"],
+  .identity-color-pink {
+    --color: #4F5B58 !important;
+    --identity-tab-color: #4F5B58 !important;
+    --identity-icon-color: #4F5B58 !important;
+  }
+}
