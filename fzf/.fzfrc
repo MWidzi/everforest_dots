@@ -8,7 +8,7 @@
 --padding=0,1
 --input-label ''
 --header-label ''
---preview '/home/widzi/Documents/scripts/fzf-preview.sh {}'
+--preview '~/.config/scripts/fzf-preview.sh {}'
 --bind 'result:transform-list-label:
 if [[ -z \$FZF_QUERY ]]; then
 echo \" \$FZF_MATCH_COUNT items \";

@@ -1,0 +1,8 @@
+terminal           = "kitty"
+fileManager        = "~/.config/scripts/fileManager.sh"
+fileManagerAlt     = "nautilus"
+menu               = "walker"
+notificationCenter = ""
+screenshot         = "hyprshot -m region"
+powerMenu          = "wlogout --buttons-per-row 6"
+colorPicker        = "hyprpicker -a -f hex"

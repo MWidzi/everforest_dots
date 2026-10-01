@@ -31,6 +31,7 @@
         "modules": [
             "custom/sep",
             "niri/workspaces",
+            "hyprland/workspaces",
         ]
     },
     "group/Clock": {
@@ -53,6 +54,7 @@
         "orientation": "horizontal",
         "modules": [
             "custom/sep",
+            "hyprland/window",
             "niri/window",
             "custom/sep",
             "network",
@@ -72,8 +74,16 @@
        "all-outputs": true,
        "active-only": false
     },
+    "hyprland/workspaces": {
+       "format": "{icon}",
+       "all-outputs": true,
+       "active-only": false,
+    },
     "niri/window": {
         "format": "{app_id}"
+    },
+    "hyprland/window": {
+        "format": "{class}"
     },
     "clock": {
         "timezone": "",
@@ -143,7 +153,7 @@
         "always-on": true,
         "interval" : 1,
         "markup": true,
-        "exec": "~/.config/scripts/get-song.sh wb",
+        "exec": "~/.config/waybar/scripts/get-song.sh wb",
         "on-click": "playerctl play-pause",
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous"

@@ -1,0 +1,275 @@
+/**
+ * @name system24
+ * @description a tui-style discord theme.
+ * @author refact0r
+ * @version 2.0.0
+ * @invite nz87hXyvcy
+ * @website https://github.com/refact0r/system24
+ * @source https://github.com/refact0r/system24/blob/master/theme/system24.theme.css
+ * @authorId 508863359777505290
+ * @authorLink https://www.refact0r.dev
+*/
+
+/* import theme modules */
+@import url('https://refact0r.github.io/system24/build/system24.css');
+
+body {
+    /* font, change to '' for default discord font */
+    --font: 'Mononoki Nerd Font'; /* change to '' for default discord font */
+    --code-font: 'Mononoki Nerd Font'; /* change to '' for default discord font */
+    font-weight: 400; /* text font weight. 300 is light, 400 is normal. DOES NOT AFFECT BOLD TEXT */
+    letter-spacing: -0.05ch; /* decreases letter spacing for better readability. recommended on monospace fonts.*/
+
+    /* sizes */
+    --gap: 12px; /* spacing between panels */
+    --divider-thickness: 1px; /* thickness of unread messages divider and highlighted message borders */
+    --border-thickness: 2px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+    --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
+
+    /* animation/transition options */
+    --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
+    --list-item-transition: 0.2s ease; /* transition for list items */
+    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+
+    /* top bar options */
+    --top-bar-height: var(--gap); /* height of the top bar (discord default is 36px, old discord style is 24px, var(--gap) recommended if button position is set to titlebar) */
+    --top-bar-button-position: titlebar; /* off: default position, hide: hide buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to channel titlebar (will hide title) */
+    --top-bar-title-position: off; /* off: default centered position, hide: hide title completely, left: left align title (like old discord) */
+    --subtle-top-bar-title: off; /* off: default, on: hide the icon and use subtle text color (like old discord) */
+
+    /* window controls */
+    --custom-window-controls: on; /* off: default window controls, on: custom window controls */
+    --window-control-size: 14px; /* size of custom window controls */
+
+    /* dms button options */
+    --custom-dms-icon: off; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
+    --dms-icon-svg-url: url('./inabakumori_discord.svg'); /* icon svg url. MUST BE A SVG. */
+    --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
+    --dms-icon-color-before: var(--text-4); /* normal icon color */
+    --dms-icon-color-after: var(--green-1); /* icon color when button is hovered/selected */
+    --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
+    --dms-background-image-url: url(''); /* url of the background image */
+    --dms-background-image-size: cover; /* size of the background image (css background-size property) */
+    --dms-background-color: linear-gradient(70deg, var(--green-2), var(--green-1), var(--aqua-1)); /* fixed color/gradient (css background property) */
+
+    /* background image options */
+    --background-image: off; /* off: no background image, on: enable background image (must set url variable below) */
+    --background-image-url: url(''); /* url of the background image */
+
+    /* transparency/blur options */
+    /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
+    --transparency-tweaks: off; /* off: no changes, on: remove some elements for better transparency */
+    --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+    --panel-blur: off; /* off: no changes, on: blur the background of panels */
+    --blur-amount: 12px; /* amount of blur */
+    --bg-floating: var(--bg-2); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
+
+    /* other options */
+    --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
+
+    /* unrounding options */
+    --unrounding: on; /* off: default, on: remove rounded corners from panels */
+    --round-pfp: on;
+
+    /* styling options */
+    --custom-spotify-bar: on; /* off: default, on: custom text-like spotify progress bar */
+    --ascii-titles: on; /* off: default, on: use ascii font for titles at the start of a channel */
+    --ascii-loader: system24; /* off: default, system24: use system24 ascii loader, cats: use cats loader */
+
+    /* panel labels */
+    --panel-labels: on; /* off: default, on: add labels to panels */
+    --label-color: var(--grey-1); /* color of labels from colors.css */
+    --label-hover-color: var(--green-1); /* color of labels on hover */
+    --label-font-weight: 500; /* font weight of labels */
+}
+
+/* color options */
+:root {
+    --colors: on; /* off: discord default colors, on: midnight custom colors */
+
+    /* text colors - from ../colors.css */
+    --text-0: #1E2326; /* text on bright accent elements (badges, buttons) */
+    --text-1: #FFFFFF; /* bright text */
+    --text-2: #D3C6AA; /* headings and important text */
+    --text-3: #D3C6AA; /* normal text (--fg) */
+    --text-4: #859289; /* icon buttons and channels (--grey-1) */
+    --text-5: #7A8478; /* muted channels/chats and timestamps (--grey-0) */
+
+    /* background and dark colors - from ../colors.css matching Spotify & Firefox */
+    --bg-1: #374145; /* dark buttons when clicked, scrollbar thumb (--bg-2) */
+    --bg-2: #2E383C; /* dark buttons, secondary elevated elements (--bg-1) */
+    --bg-3: #1E2326; /* window spacing, outer frame background (--bg-dim) */
+    --bg-4: #272E33; /* main panel background color (--bg) */
+    --hover: rgba(167, 192, 128, 0.08); /* subtle green hover tint */
+    --active: rgba(167, 192, 128, 0.16); /* selected channels and buttons */
+    --active-2: rgba(167, 192, 128, 0.24); /* extra active state */
+    --message-hover: rgba(46, 56, 60, 0.45); /* messages when hovered */
+
+    /* accent colors - primarily green matching Spotify & Firefox */
+    --accent-1: var(--green-1); /* links and other accent text */
+    --accent-2: var(--green-1); /* brand accent: badges, checkboxes, switches, active indicators */
+    --accent-3: var(--green-1); /* accent buttons */
+    --accent-4: var(--aqua-1); /* accent buttons when hovered */
+    --accent-5: var(--green-2); /* accent buttons when clicked */
+    --accent-new: var(--green-1); /* notification badges, unread indicators */
+
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--green-1), transparent 88%) 40%, transparent); /* messages that mention you */
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--green-1), transparent 82%) 40%, transparent);
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--aqua-1), transparent 90%) 40%, transparent); /* messages that reply to you */
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--aqua-1), transparent 85%) 40%, transparent);
+
+    /* status indicator colors */
+    --online: var(--green-1); /* Everforest green */
+    --dnd: var(--red-1); /* Everforest red */
+    --idle: var(--yellow-1); /* Everforest yellow */
+    --streaming: var(--purple-1); /* Everforest purple */
+    --offline: var(--text-5); /* Everforest grey-0 */
+
+    /* border colors - matching Spotify (border-inactive = 4F5B58, border-active = A7C080) */
+    --border-light: #374145; /* subtle inner borders (--bg-2) */
+    --border: #4F5B58; /* general normal border color (--bg-5 / spotify border-inactive) */
+    --border-hover: var(--green-1); /* panel border on hover (--green / spotify border-active) */
+    --button-border: rgba(79, 91, 88, 0.35); /* neutral button border */
+
+    /* base colors from ../colors.css */
+    --red-1: #E67E80;
+    --red-2: #493B40;
+    --red-3: #E67E80;
+    --red-4: #493B40;
+    --red-5: #E67E80;
+
+    --green-1: #A7C080;
+    --green-2: #3C4841;
+    --green-3: #A7C080;
+    --green-4: #3C4841;
+    --green-5: #A7C080;
+
+    --blue-1: #7FBBB3;
+    --blue-2: #384B55;
+    --blue-3: #7FBBB3;
+    --blue-4: #384B55;
+    --blue-5: #7FBBB3;
+
+    --yellow-1: #DBBC7F;
+    --yellow-2: #45443C;
+    --yellow-3: #DBBC7F;
+    --yellow-4: #45443C;
+    --yellow-5: #DBBC7F;
+
+    --purple-1: #D699B6;
+    --purple-2: #463F48;
+    --purple-3: #4C3743;
+    --purple-4: #D699B6;
+    --purple-5: #463F48;
+
+    --aqua-1: #83C092;
+    --aqua-2: #3D5746;
+    --orange-1: #E69875;
+    --grey-0: #7A8478;
+    --grey-1: #859289;
+    --grey-2: #9DA9A0;
+}
+
+/* ========================================================
+   FIXES FOR BORDER CLIPPING, DIVIDERS & UI INTEGRATION
+   ======================================================== */
+
+/* Fix top bar ('friends' in DMs/friends tab, 'channel' in servers) borders and clipping */
+.subtitleContainer_f75fb0,
+[class*="subtitleContainer_"],
+section[class*="title_"]:not([class*="subtitleContainer_"] *),
+#app-mount .container__133bf > .container__9293f,
+#app-mount [class*="container_"] > [class*="container_"]:has([class*="children_"]) {
+    margin-top: 0 !important;
+    margin-right: 0px !important;
+    width: auto !important;
+    border: var(--border-thickness) solid var(--border) !important;
+    border-bottom: var(--border-thickness) solid var(--border) !important;
+    box-sizing: border-box !important;
+    border-radius: var(--radius-lg) !important;
+    background-color: var(--bg-4) !important;
+    transition: border-color var(--border-hover-transition);
+}
+
+.subtitleContainer_f75fb0:hover,
+[class*="subtitleContainer_"]:hover,
+section[class*="title_"]:not([class*="subtitleContainer_"] *):hover,
+#app-mount .container__133bf > .container__9293f:hover,
+#app-mount [class*="container_"] > [class*="container_"]:has([class*="children_"]):hover {
+    border-color: var(--border-hover) !important;
+}
+
+/* Ensure titlebar inner content has no conflicting borders or backgrounds */
+[class*="subtitleContainer_"] section,
+[class*="subtitleContainer_"] [class*="title_"] {
+    border: none !important;
+    background: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+/* Provide proper padding on the right for top bar trailing icons */
+[class*="trailing_"] {
+    right: calc(var(--gap) + var(--border-thickness) + 8px) !important;
+}
+
+[class*="toolbar_"] {
+    padding-right: calc(var(--top-bar-right-margin, 70px) + 8px) !important;
+}
+
+/* Ensure right sidebar (member list & DM profile) margins align properly */
+.container_c8ffbb,
+.content_f75fb0 > aside > .outer_c0bea0 {
+    margin-right: var(--gap) !important;
+    margin-bottom: var(--gap) !important;
+    box-sizing: border-box !important;
+}
+
+/* Fix line separators (date divider & unread divider) */
+[class*="divider_"],
+.divider__908e2 {
+    --divider-color: var(--text-5) !important;
+    border-top: 1px solid var(--text-5) !important;
+    border-bottom: none !important;
+}
+
+[class*="divider_"] [class*="content_"],
+.divider__908e2 .content__908e2 {
+    color: var(--text-5) !important;
+    background-color: var(text-5) !important;
+    font-weight: 500;
+}
+
+[class*="divider_"][class*="isUnread_"],
+[class*="divider_"][class*="hasContent_"][class*="isUnread_"],
+.divider__5126c {
+    --divider-color: var(--text-5) !important;
+    border-top: 1px solid var(--text-5) !important;
+}
+
+[class*="divider_"][class*="isUnread_"] [class*="content_"],
+[class*="divider_"][class*="hasContent_"][class*="isUnread_"] [class*="content_"],
+.divider__5126c [class*="content_"] {
+    color: var(--text-5) !important;
+    background-color: var(--bg-4) !important;
+}
+
+/* Fix panel label backgrounds matching main panel background */
+@container body style(--panel-labels: on) {
+    .guilds__5e434::after,
+    .panels__5e434::after,
+    .sidebarList__5e434::after,
+    .subtitleContainer_f75fb0::after,
+    .messagesWrapper__36d07::after,
+    .channelTextArea_f75fb0::after,
+    .content_f75fb0 > .membersWrap_c8ffbb::after,
+    .container_c8ffbb::after,
+    .container__133bf > .container__9293f::after,
+    .peopleColumn__133bf::after,
+    .nowPlayingColumn__133bf::after,
+    .container__01ae2 > .container__9293f::after,
+    .callContainer_cb9592::after {
+        background-color: var(--bg-4) !important;
+        color: var(--text-3) !important;
+    }
+}

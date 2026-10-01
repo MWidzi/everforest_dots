@@ -1,0 +1,21 @@
+{
+    "include": ["~/.config/waybar/config.jsonc"],
+
+    "group/Workspaces": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/sep",
+            "niri/workspaces"
+        ]
+    },
+    "group/Sys": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/sep",
+            "niri/window",
+            "custom/sep",
+            "network",
+            "custom/sep"
+        ]
+    }
+}

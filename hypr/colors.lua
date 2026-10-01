@@ -1,0 +1,28 @@
+fg          = "#D3C6AA"
+
+red         = "#E67E80"
+yellow      = "#DBBC7F"
+green       = "#A7C080"
+blue        = "#7FBBB3"
+purple      = "#D699B6"
+aqua        = "#83C092"
+orange      = "#E69875"
+
+red_dark    = "#493B40"
+yellow_dark = "#45443C"
+green_dark  = "#3C4841"
+blue_dark   = "#384B55"
+purple_dark = "#463F48"
+visual_dark = "#4C3743"
+
+grey_0      = "#7A8478"
+grey_1      = "#859289"
+grey_2      = "#9DA9A0"
+
+bg_dim      = "#1E2326"
+bg          = "#272E33"
+bg_1        = "#2E383C"
+bg_2        = "#374145"
+bg_3        = "#414B50"
+bg_4        = "#495156"
+bg_5        = "#4F5B58"

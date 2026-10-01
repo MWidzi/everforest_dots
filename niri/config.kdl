@@ -88,7 +88,7 @@ layout {
     }
 }
 
-spawn-at-startup "waybar"
+spawn-at-startup "waybar -c ~/.config/waybar/config-niri.jsonc"
 spawn-at-startup "swaync"
 spawn-at-startup "swww-daemon"
 spawn-sh-at-startup "walker --gapplication-service"

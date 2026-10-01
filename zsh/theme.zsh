@@ -1,0 +1,1 @@
+typeset -gA ZSH_HIGHLIGHT_STYLES
