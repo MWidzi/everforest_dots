@@ -1,0 +1,6 @@
+{
+    "include": [
+        "~/.config/waybar/config-hyprland.jsonc"
+    ],
+    "output": "DP-1"
+}

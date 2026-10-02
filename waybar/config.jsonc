@@ -2,8 +2,6 @@
 {
     "height": 35,
     "spacing": 5,
-    "output": "DP-1",
-
     // Choose the order of the modules
     "modules-left": [
         "group/Util",
@@ -18,7 +16,6 @@
         "group/Sys",
         "custom/power"
     ],
-
     //groups so it's easier to find stuff and separators don't make a mess
     "group/Util": {
         "orientation": "horizontal",
@@ -61,23 +58,21 @@
             "custom/sep",
         ]
     },
-
     //separator
     "custom/sep": {
         "format": "|",
         "tooltip": false
     },
-
     // Modules config
     "niri/workspaces": {
-       "format": "{icon}",
-       "all-outputs": true,
-       "active-only": false
+        "format": "{icon}",
+        "all-outputs": true,
+        "active-only": false
     },
     "hyprland/workspaces": {
-       "format": "{icon}",
-       "all-outputs": true,
-       "active-only": false,
+        "format": "{icon}",
+        "all-outputs": true,
+        "active-only": false,
     },
     "niri/window": {
         "format": "{app_id}"
@@ -108,21 +103,28 @@
         ]
     },
     "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
     },
     "network": {
-        "format-wifi": "{icon}",
+        "format-wifi": "{icon}  {ipaddr}",
         "format-ethernet": "<span color=\"#A7C080\">󰈀</span>  {ipaddr}",
-        "format-disconnected": "<span color=\"#A7C080\"> </span> ",
-        "on-click": "nm-connection-editor"
+        "format-disconnected": "<span color=\"#A7C080\"></span> ",
+        "on-click": "nm-connection-editor",
+        "format-icons": [
+            "<span color=\"#E67E80\">󰤯</span>",
+            "<span color=\"#E69875\">󰤟</span>",
+            "<span color=\"#DBBC7F\">󰤢</span>",
+            "<span color=\"#A7C080\">󰤥</span>",
+            "<span color=\"#A7C080\">󰤨</span>"
+        ]
     },
     "pulseaudio": {
         "scroll-step": 1,
@@ -147,11 +149,10 @@
         },
         "on-click": "easyeffects"
     },
-
     "custom/media": {
         "format": "{}",
         "always-on": true,
-        "interval" : 1,
+        "interval": 1,
         "markup": true,
         "exec": "~/.config/waybar/scripts/get-song.sh wb",
         "on-click": "playerctl play-pause",
@@ -159,8 +160,8 @@
         "on-scroll-down": "playerctl previous"
     },
     "custom/power": {
-        "format" : " <span color='#A7C080'>⏻</span> ",
-		"tooltip": false,
-		"on-click": "wlogout --buttons-per-row 6"
+        "format": " <span color='#A7C080'>⏻</span> ",
+        "tooltip": false,
+        "on-click": "wlogout --buttons-per-row 6"
     }
 }
